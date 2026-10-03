@@ -1,0 +1,708 @@
+/* =========================================================
+   NAYLA SAHARA PORTFOLIO
+   External CSS for Programming Web 1 assignment
+   Jenis selector yang digunakan:
+   1. Element        : body, h1, p — memilih elemen berdasarkan nama tag HTML.
+   2. Class          : .card, .section-title — memilih elemen berdasarkan atribut class.
+   3. ID             : #hero — memilih elemen berdasarkan atribut id yang unik.
+   4. Descendant     : .nav-menu a — memilih elemen a di dalam .nav-menu.
+   5. Child          : .nav-menu > li > a — memilih anak langsung dari suatu elemen.
+   6. Group          : h1, h2, h3 — menerapkan aturan yang sama ke beberapa selector.
+   7. Pseudo-class   : .nav-menu a:hover — memilih elemen saat berada pada kondisi tertentu.
+   8. Pseudo-element : .section-title::after — menata bagian tertentu dari elemen.
+   9. Attribute      : img[alt] — memilih elemen berdasarkan keberadaan atribut.
+   ========================================================= */
+
+:root {
+    --bg: #07111f;
+    --bg-soft: #0b1728;
+    --surface: #0f1e31;
+    --surface-2: #13263d;
+    --line: #203650;
+    --text: #f4f7fb;
+    --muted: #9eafc4;
+    --blue: #5b93ff;
+    --blue-light: #7bc7ff;
+    --blue-deep: #245fd0;
+    --white: #ffffff;
+    --shadow: 0 20px 60px rgba(0, 0, 0, .25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Element selector: memilih semua elemen <body> berdasarkan nama tag HTML. */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Attribute selector: memilih elemen <img> yang memiliki atribut alt. */
+img[alt] {
+    display: block;
+    max-width: 100%;
+}
+
+/* ---------- Header ---------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(7, 17, 31, .92);
+    border-bottom: 1px solid rgba(123, 199, 255, .12);
+    backdrop-filter: blur(16px);
+}
+
+.navbar {
+    width: min(1160px, calc(100% - 48px));
+    margin: auto;
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: .4px;
+    white-space: nowrap;
+}
+
+.brand-mark {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--blue-light);
+    font-size: .75rem;
+}
+
+.brand span:last-child {
+    color: var(--blue-light);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+/* Child selector */
+.nav-menu > li > a {
+    display: block;
+    padding: 9px 13px;
+    color: var(--muted);
+    font-size: .94rem;
+    border-radius: 8px;
+    transition: .25s ease;
+}
+
+/* Descendant selector: memilih tautan <a> yang berada di dalam .nav-menu.
+   Pseudo-class :hover: menerapkan gaya saat tautan sedang diarahkan pointer. */
+.nav-menu a:hover {
+    color: var(--white);
+    background: rgba(91, 147, 255, .12);
+}
+
+.nav-menu a.active {
+    color: var(--blue-light);
+}
+
+/* ---------- Common ---------- */
+.container {
+    width: min(1160px, calc(100% - 48px));
+    margin: auto;
+}
+
+.page {
+    min-height: calc(100vh - 78px);
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-label {
+    color: var(--blue-light);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: .75rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+/* Group selector: satu aturan diterapkan sekaligus pada h1, h2, dan h3. */
+h1, h2, h3 {
+    color: var(--text);
+    line-height: 1.15;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    max-width: 760px;
+    letter-spacing: -1.5px;
+}
+
+/* Pseudo-element selector */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin-top: 22px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light));
+    border-radius: 99px;
+}
+
+.section-intro {
+    max-width: 680px;
+    color: var(--muted);
+    margin-top: 22px;
+    font-size: 1rem;
+}
+
+/* Class selector: memilih semua elemen yang memiliki class="card". */
+.card {
+    background: linear-gradient(145deg, rgba(19, 38, 61, .94), rgba(11, 23, 40, .94));
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    background: var(--blue-deep);
+    color: var(--white);
+    font-weight: 700;
+    font-size: .92rem;
+    transition: .25s ease;
+}
+
+.btn:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+}
+
+.text-blue {
+    color: var(--blue-light);
+}
+
+/* ---------- Home ---------- */
+/* ID selector: memilih elemen dengan id="hero". */
+#hero {
+    position: relative;
+    overflow: hidden;
+    padding: 92px 0 110px;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -190px;
+    top: -170px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91, 147, 255, .16), transparent 67%);
+}
+
+.hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    letter-spacing: -4px;
+    max-width: 780px;
+}
+
+.hero-title span {
+    color: var(--blue-light);
+}
+
+.hero-text {
+    color: var(--muted);
+    max-width: 650px;
+    margin: 24px 0 30px;
+    font-size: 1.04rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.profile-wrap {
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    position: relative;
+}
+
+.profile-ring {
+    position: absolute;
+    inset: -13px;
+    border: 1px solid rgba(123, 199, 255, .3);
+    border-radius: 50%;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #10243a;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+    background: #dfe5eb;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 43%;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 65px;
+}
+
+.quick-card {
+    padding: 25px;
+}
+
+.quick-card strong {
+    display: block;
+    color: var(--blue-light);
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.quick-card p {
+    color: var(--muted);
+    font-size: .92rem;
+}
+
+/* ---------- About / Experience ---------- */
+.page-head {
+    padding: 95px 0 65px;
+    border-bottom: 1px solid rgba(123, 199, 255, .08);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-photo {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #132b45;
+    box-shadow: var(--shadow);
+}
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 43%;
+}
+
+.about-copy p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.experience-list {
+    margin-top: 42px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 28px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+}
+
+.experience-year {
+    color: var(--blue-light);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+.experience-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.experience-item p {
+    color: var(--muted);
+    font-size: .93rem;
+}
+
+.role {
+    color: var(--blue-light) !important;
+    font-size: .86rem !important;
+    margin-bottom: 7px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 38px;
+}
+
+.skill {
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.skill strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 3px;
+}
+
+/* ---------- Projects ---------- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 48px;
+}
+
+.project-card {
+    overflow: hidden;
+    transition: .25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(123, 199, 255, .45);
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid var(--line);
+    background: #0b1523;
+}
+
+.project-body {
+    padding: 24px;
+}
+
+.project-tag {
+    color: var(--blue-light);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+.project-body h3 {
+    margin: 8px 0 9px;
+    font-size: 1.35rem;
+}
+
+.project-body p {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 17px;
+}
+
+.tags span {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px;
+    color: var(--muted);
+    font-size: .7rem;
+}
+
+.project-note {
+    margin-top: 28px;
+    padding: 20px;
+    border-left: 3px solid var(--blue);
+    background: rgba(91, 147, 255, .06);
+    color: var(--muted);
+    border-radius: 0 10px 10px 0;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 24px;
+    margin-top: 42px;
+    align-items: stretch;
+}
+
+.contact-info {
+    padding: 30px;
+}
+
+.contact-info h3 {
+    margin-bottom: 12px;
+    font-size: 1.45rem;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.contact-list {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(7, 17, 31, .35);
+}
+
+.contact-link {
+    color: inherit;
+    text-decoration: none;
+    transition: .25s ease;
+}
+
+.contact-link:hover {
+    border-color: rgba(123, 199, 255, .45);
+    background: rgba(91, 147, 255, .08);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--blue-light);
+    border: 1px solid var(--line);
+    font-weight: 800;
+    flex: 0 0 40px;
+}
+
+.contact-item strong {
+    display: block;
+    color: var(--text);
+    font-size: .92rem;
+}
+
+.contact-item span {
+    color: var(--muted);
+    font-size: .82rem;
+}
+
+.contact-form {
+    padding: 30px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--text);
+    font-size: .86rem;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 13px 14px;
+    margin-bottom: 17px;
+    background: #0b1728;
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: .25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(91, 147, 255, .10);
+}
+
+.contact-form textarea {
+    min-height: 145px;
+    resize: vertical;
+}
+
+.contact-form button {
+    border: 0;
+    cursor: pointer;
+}
+
+.contact-note {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    border-top: 1px solid var(--line);
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer p {
+    color: var(--muted);
+    font-size: .84rem;
+}
+
+.footer strong {
+    color: var(--blue-light);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .hero-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-wrap {
+        margin: 20px auto 0;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid,
+    .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        width: min(100% - 28px, 1160px);
+        min-height: 70px;
+    }
+
+    .brand {
+        font-size: .85rem;
+    }
+
+    .brand-mark {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav-menu {
+        gap: 0;
+    }
+
+    .nav-menu > li > a {
+        padding: 7px;
+        font-size: .76rem;
+    }
+
+    .container {
+        width: min(100% - 28px, 1160px);
+    }
+
+    .section {
+        padding: 72px 0;
+    }
+
+    .hero-title {
+        letter-spacing: -2px;
+    }
+
+    .profile-wrap {
+        width: 280px;
+        height: 280px;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .skills-grid,
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
